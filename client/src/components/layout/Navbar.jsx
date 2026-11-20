@@ -22,6 +22,7 @@ import {
   Tag,
   Home,
   FileText,
+  History,
 } from "lucide-react";
 
 const Navbar = ({ toggleSidebar, isSidebarOpen, promotion }) => {
@@ -70,6 +71,9 @@ const Navbar = ({ toggleSidebar, isSidebarOpen, promotion }) => {
     if (path.startsWith("/ats-analyzer")) {
       return { title: "ATS Diagnostics", icon: Target, color: "text-emerald-600 dark:text-emerald-400" };
     }
+    if (path.startsWith("/interview/history") || path.startsWith("/interview/result")) {
+      return { title: "Interview History & Reports", icon: History, color: "text-blue-600 dark:text-blue-400" };
+    }
     if (path.startsWith("/interview")) {
       return { title: "AI Interview Studio", icon: Mic, color: "text-blue-600 dark:text-blue-400" };
     }
@@ -102,14 +106,14 @@ const Navbar = ({ toggleSidebar, isSidebarOpen, promotion }) => {
   return (
     <nav
       className={`fixed top-0 right-0 z-40 transition-all duration-300 no-print ${
-        isSidebarOpen ? "left-0 lg:left-72" : "left-0 lg:left-28"
+        isSidebarOpen ? "left-0 lg:left-64" : "left-0 lg:left-20"
       } ${
         isScrolled
           ? "bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border-b border-gray-200/80 dark:border-white/10 shadow-xs"
           : "bg-white/80 dark:bg-[#09090b]/80 backdrop-blur-md border-b border-transparent"
       }`}
     >
-      <div className="mx-auto px-4 lg:px-6">
+      <div className="workspace-container">
         <div className="flex items-center justify-between h-14">
           {/* Left Section: Mobile Menu OR Desktop Clean Workspace Indicator */}
           <div className="flex items-center gap-3">
